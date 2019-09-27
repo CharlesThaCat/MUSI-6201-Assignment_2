@@ -25,6 +25,8 @@ def extract_rms(xb):
     for b in xb:
         length = len(b)
         rms = np.sqrt(np.divide(np.sum(np.square(b)),length))
+        if rms < 1e-5:
+            rms = 1e-5
         rms = 20*np.log10(rms)
         rms_matrix.append(rms)
     # print(rms_matrix)
